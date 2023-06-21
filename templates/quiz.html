@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Quiz</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/style.css') }}">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('.emotion-button').click(function() {
+        var emotion = $(this).text();
+        $.ajax({
+          url: '/quiz/' + '{{ level.level }}',
+          type: 'POST',
+          data: { emotion: emotion },
+          success: function(response) {
+            // Handle the response here, if needed
+            console.log(response);
+          },
+          error: function(error) {
+            // Handle any errors here, if needed
+            console.log(error);
+          }
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+  <div class="container">
+<img src="{{ url_for('static', filename='faces/' + question.imageName) }}" alt="Picture" class="picture">
+    <div class="answer-boxes">
+      {% for emotion in level.emotions %}
+      <div class="answer-box">
+        <button type="button" class="emotion-button">{{ emotion }}</button>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</body>
+</html>

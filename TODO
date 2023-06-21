@@ -1,0 +1,15 @@
+- Make game state reflect updated data
+    - refactored to object oriented Game
+- Implement Level Up Game Logic
+- Implement Level Complete Game Logic
+
+
+Game Logic
+
+Question Objects
+
+    Easy ( 90% one emotion )
+
+    Med  ( 80% one emotion )
+
+    Hard ( 40% each emotion)

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Level Selection</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Level Selection</h1>
+    <div class="level-grid">
+      {% for level in levels %}
+      <div class="level">
+        <a href="{{ url_for('quiz', level=level.level) }}">
+          <div class="level-number-box">
+            <span class="level-number">{{ level.level }}</span>
+          </div>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</body>
+</html>
