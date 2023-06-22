@@ -9,14 +9,12 @@ app.secret_key = 'your_secret_key'
 # Flask routes for handling game logic
 @app.route('/')
 def home():
-    # Render the home page or game introduction
+    game = Game(userId='user1')
     return render_template('home.html')
 
 @app.route('/levels')
 def levels():
-    #get Level Objects from Game.Levels
-    levels = Game.levels
-    return render_template('levels.html', levels = levels)
+    return render_template('levels.html')
 
 
 @app.route('/quiz/<level>', methods=['GET', 'POST'])
