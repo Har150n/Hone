@@ -1,18 +1,19 @@
-import boto3
-import json
+import boto3, json, jsonpickle as jp
 
-client = boto3.client('dynamodb', region_name='us-east-2')
+client = boto3.resource('dynamodb', region_name='us-east-2')
 tableName = 'Hone_Game_States'
+table = client.Table(tableName)
 
 #returns a game object from the Dynamo Database given a userid
 #if there exists no game object, -1 is returned
 def retrieveGame(userId):
-    response = client.get_item(
-        TableName=tableName,
+    table = client.Table(tableName)
+    response = table.get_item(
         Key={
-            'userId': {'N': userId}
+            'userId': userId
         }
     )
+
 
     #ERROR CHECK RESPONSE
     #check if anything was retrieved
@@ -22,9 +23,15 @@ def retrieveGame(userId):
         #return deserialized game object
         pass
 
-#inserts a new Game State item into the db
-def newGame(game, userId):
-    print('new game created')
+#Input: (Game obj) game, (str) userId
+#Output: returns the newly created game
+def newGame(game):
+    response = table.put_item(
+        TableName=tableName,
+        Item=game.toDict()
+    )
+    print(response)
+    return game
     pass
 
 

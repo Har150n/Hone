@@ -1,5 +1,5 @@
 from enum import Enum
-import random, json, dynamo_controller as dc
+import random, dynamo_controller as dc
 
 
 # Level class to represent each level in the game
@@ -14,14 +14,18 @@ class Level:
         self.index = 0              #question index
         self.score = 0              #number of corret answers
 
-
-    def to_dict(self):
-        return {
-            'level': self.level,
-            'mode': self.mode,
-            'questions': [q.to_dict() for q in self.questions],
-            'emotions': self.emotions
+    def toDict(self):
+        questionsDict = [question.toDict() for question in self.questions]
+        levelDict = {
+            "level": self.level,
+            "mode": self.mode,
+            "questions": questionsDict,
+            "emotions": self.emotions,
+            "index": self.index,
+            "score": self.score
         }
+        return levelDict
+
 
 
 
@@ -34,9 +38,20 @@ class Question:
         self.options = options                      #list of options
         self.answer = answer      #list of correct emotion options
 
+#   Serializes a Question Object
+    def toDict(self):
+        questionDict = {
+            "qId": self.qId,
+            "imageName": self.imageName,
+            "emotionData": self.emotionData,
+            "options": self.options,
+            "answer": self.answer
+        }
+        return questionDict
+
+
 # Game class to manage the overall game state
 class Game:
-
     def __init__(self, userId):
         self.userId = userId
         self.levels= self.populateLevels()
@@ -130,6 +145,19 @@ class Game:
         else:
             print('Wrong Answer')
 
+    #serializes the Game Object into a dictionary
+    def toDict(self):
+        currentLevelDict = self.currentLevel.toDict() if self.currentLevel is not None else None
+        gameDict = {
+            "userId": self.userId,
+            "levels": [level.toDict() for level in self.levels],
+            "currentLevel": currentLevelDict
+        }
+        return gameDict
+
+
+    #Input: (str) userId
+    #Output: (game obj) game
     #returns a game object of the user's current game state given a userId
     @staticmethod
     def getGame(userId):
@@ -137,9 +165,12 @@ class Game:
         if game == -1:
             newGame = Game(userId)
             dc.newGame(newGame, userId)         #inserts a new game into the table
+            return newGame
         else:
             return game            #returns the deserialized gameoObject
 
 
 
 
+game = Game(123)
+dc.newGame(game)
