@@ -9,7 +9,7 @@ app.secret_key = 'your_secret_key'
 # Flask routes for handling game logic
 @app.route('/')
 def home():
-    game = Game(userId='user1')
+    Game.getGame('124')
     return render_template('home.html')
 
 @app.route('/levels')

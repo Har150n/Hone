@@ -1,5 +1,5 @@
 from enum import Enum
-import random, json
+import random, json, dynamo_controller as dc
 
 
 # Level class to represent each level in the game
@@ -23,22 +23,6 @@ class Level:
             'emotions': self.emotions
         }
 
-    @staticmethod
-    def from_dict(data):
-        return Level(
-            level=data['level'],
-            mode=data['mode'],
-            questions=[Question.from_dict(q) for q in data['questions']],
-            emotions=data['emotions']
-        )
-
-    def to_json(self):
-        return json.dumps(self.to_dict())
-
-    @staticmethod
-    def from_json(json_str):
-        data = json.loads(json_str)
-        return Level.from_dict(data)
 
 
 # Question class to represent each question in a level
@@ -145,5 +129,17 @@ class Game:
             print(Game.currentLevel.score)
         else:
             print('Wrong Answer')
+
+    #returns a game object of the user's current game state given a userId
+    @staticmethod
+    def getGame(userId):
+        game = dc.retrieveGame(userId)
+        if game == -1:
+            newGame = Game(userId)
+            dc.newGame(newGame, userId)         #inserts a new game into the table
+        else:
+            return game            #returns the deserialized gameoObject
+
+
 
 
