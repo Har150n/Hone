@@ -1,5 +1,7 @@
 from enum import Enum
-import random, dynamo_controller as dc
+import random, dynamo_controller as dc, pickle
+
+from timeit import default_timer as timer
 
 
 # Level class to represent each level in the game
@@ -26,6 +28,18 @@ class Level:
         }
         return levelDict
 
+    @classmethod
+    def fromDict(cls, levelDict):
+        level = levelDict["level"]
+        mode = levelDict["mode"]
+        questions = [Question.fromDict(q) for q in levelDict["questions"]]
+        emotions = levelDict["emotions"]
+        index = levelDict["index"]
+        score = levelDict["score"]
+        return cls(level, mode, questions, emotions)
+
+
+
 
 
 
@@ -38,7 +52,6 @@ class Question:
         self.options = options                      #list of options
         self.answer = answer      #list of correct emotion options
 
-#   Serializes a Question Object
     def toDict(self):
         questionDict = {
             "qId": self.qId,
@@ -48,6 +61,15 @@ class Question:
             "answer": self.answer
         }
         return questionDict
+
+    @classmethod
+    def fromDict(cls, questionDict):
+        qId = questionDict["qId"]
+        imageName = questionDict["imageName"]
+        emotionData = questionDict["emotionData"]
+        options = questionDict["options"]
+        answer = questionDict["answer"]
+        return cls(qId, imageName, options, answer)
 
 
 # Game class to manage the overall game state
@@ -145,7 +167,7 @@ class Game:
         else:
             print('Wrong Answer')
 
-    #serializes the Game Object into a dictionary
+
     def toDict(self):
         currentLevelDict = self.currentLevel.toDict() if self.currentLevel is not None else None
         gameDict = {
@@ -155,22 +177,38 @@ class Game:
         }
         return gameDict
 
+    @classmethod
+    def fromDict(cls, gameDict):
+        userId = gameDict["userId"]
+        levels = [Level.fromDict(level) for level in gameDict["levels"]]
+        currentLevelDict = gameDict["currentLevel"]
+        currentLevel = Level.fromDict(currentLevelDict) if currentLevelDict is not None else None
+        game = cls(userId)
+        game.levels = levels
+        game.currentLevel = currentLevel
+        return game
+
 
     #Input: (str) userId
     #Output: (game obj) game
     #returns a game object of the user's current game state given a userId
     @staticmethod
     def getGame(userId):
+        if isinstance(userId, str):
+            userId = int(userId)
         game = dc.retrieveGame(userId)
         if game == -1:
             newGame = Game(userId)
             dc.newGame(newGame, userId)         #inserts a new game into the table
             return newGame
         else:
-            return game            #returns the deserialized gameoObject
+            deserializedObj = Game.fromDict(game)
+            return deserializedObj
+
+    # Input: userId, (game obj) game
+    # Output: Void
+    @staticmethod
+    def updateGame(game):
+        dc.newGame(game)
 
 
-
-
-game = Game(123)
-dc.newGame(game)

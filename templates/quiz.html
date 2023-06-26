@@ -8,8 +8,11 @@
     $(document).ready(function() {
       $('.emotion-button').click(function() {
         var emotion = $(this).text();
+        var userId = "{{ userId }}"; // Add this line to get the userId from Flask template
+        var level = "{{ level }}"; // Add this line to get the level from Flask template
+          console.log(emotion, userId, level)
         $.ajax({
-          url: '/quiz/' + '{{ level.level }}',
+          url: '/quiz/' + userId + '/' + level, // Update the URL with userId and level
           type: 'POST',
           data: { emotion: emotion },
           success: function(response) {

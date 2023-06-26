@@ -10,7 +10,7 @@
     <div class="level-grid">
       {% for level in levels %}
       <div class="level">
-        <a href="{{ url_for('quiz', level=level.level) }}">
+        <a href="{{ url_for('quiz', userId = userId, level=level.level) }}">
           <div class="level-number-box">
             <span class="level-number">{{ level.level }}</span>
           </div>
