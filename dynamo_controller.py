@@ -30,9 +30,8 @@ def newGame(game):
         TableName=tableName,
         Item=game.toDict()
     )
-    print(response)
     return game
-    pass
+
 
 
 

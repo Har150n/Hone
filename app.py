@@ -25,17 +25,23 @@ def levels(userId):
 @app.route('/quiz/<userId>/<level>', methods=['GET', 'POST'])
 def quiz(userId, level):
     game = Game.getGame(userId)
-    game.currentLevel = game.levels[int(level)-1]
-    Game.updateGame(game)
+    if game.currentLevel is None and (isinstance(level, str) or isinstance(level, int)):
+        game.currentLevel = game.levels[int(level)-1]
+
     if request.method == 'POST':
         emotion = request.form['emotion']
-        print(emotion)
+        game.submitAnswer(emotion)
+        #update levels to reflect answer submission
+        game.levels[int(level)-1] = game.currentLevel
+        game = Game.updateGame(game)
+        print(game.currentLevel.index)
         return render_template('quiz.html', userId = userId, level=game.currentLevel,
-                               question = game.currentLevel.questions[int(level)-1])
+                               question = game.currentLevel.questions[game.currentLevel.index])
     else:
         return render_template('quiz.html',  userId = userId, level=game.currentLevel ,
-                               question = game.currentLevel.questions[int(level)-1])
+                               question = game.currentLevel.questions[game.currentLevel.index])
 
 
 if __name__ == '__main__':
     app.run()
+

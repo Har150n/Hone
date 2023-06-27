@@ -8,13 +8,13 @@ from timeit import default_timer as timer
 #Easy has two emotion (str) options, Med has three, Hard has four
 class Level:
     Difficulty = Enum('Difficulty', ['EASY', 'MED', 'HARD'])
-    def __init__(self, level, mode, questions, emotions):
+    def __init__(self, level, mode, questions, emotions, index=0, score=0):
         self.level = level
         self.mode = mode
         self.questions = questions  # List of Question objects
         self.emotions = emotions
-        self.index = 0              #question index
-        self.score = 0              #number of corret answers
+        self.index = int(index)
+        self.score = int(score)
 
     def toDict(self):
         questionsDict = [question.toDict() for question in self.questions]
@@ -36,7 +36,7 @@ class Level:
         emotions = levelDict["emotions"]
         index = levelDict["index"]
         score = levelDict["score"]
-        return cls(level, mode, questions, emotions)
+        return cls(level, mode, questions, emotions, index, score)
 
 
 
@@ -159,11 +159,11 @@ class Game:
         return levels
 
     def submitAnswer(self, emotion):
-        currentQuestion = Game.currentLevel.questions[Game.currentLevel.index]
+        currentQuestion = self.currentLevel.questions[self.currentLevel.index]
         if emotion == currentQuestion.answer:
-            Game.currentLevel.score += 1
-            Game.currentLevel.index += 1
-            print(Game.currentLevel.score)
+            self.currentLevel.score += 1
+            self.currentLevel.index += 1
+
         else:
             print('Wrong Answer')
 
@@ -199,16 +199,16 @@ class Game:
         game = dc.retrieveGame(userId)
         if game == -1:
             newGame = Game(userId)
-            dc.newGame(newGame, userId)         #inserts a new game into the table
+            dc.newGame(newGame)         #inserts a new game into the table
             return newGame
         else:
             deserializedObj = Game.fromDict(game)
             return deserializedObj
 
     # Input: userId, (game obj) game
-    # Output: Void
+    # Output: return the game
     @staticmethod
     def updateGame(game):
-        dc.newGame(game)
+        return dc.newGame(game)
 
 
