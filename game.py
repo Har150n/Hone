@@ -159,13 +159,24 @@ class Game:
         return levels
 
     def submitAnswer(self, emotion):
+        SCORE_TO_LEVEL_UP = 3
         currentQuestion = self.currentLevel.questions[self.currentLevel.index]
-        if emotion == currentQuestion.answer:
+        if currentQuestion.answer in emotion:
+            #   check if over index
+            if (self.currentLevel.index+1) == len(self.currentLevel.questions):
+                self.currentLevel.index = 0
+            else:
+                self.currentLevel.index += 1
+
             self.currentLevel.score += 1
-            self.currentLevel.index += 1
+            if self.currentLevel.score >= SCORE_TO_LEVEL_UP:
+                self.currentLevel.score = 0
+                return 'Complete'
+            else:
+                return 'Incomplete'
 
         else:
-            print('Wrong Answer')
+            return 'Wrong answer'
 
 
     def toDict(self):

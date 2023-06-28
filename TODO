@@ -1,26 +1,23 @@
-- Make game state reflect updated data
-    - refactored to object oriented Game
-- Implement Level Up Game Logic
-- Implement Level Complete Game Logic
 
 
-Game Logic
+---- Version 1 ----
 
-Question Objects
+1. Make game state reflect updated data * (not updating when index upates)  X
+*images not showing up X
 
-    Easy ( 90% one emotion )
+2. Implement Level Up Game Logic and Progress Bar
+3. Show completed levels and add 2 more levels
+4. Add Landing Page info and Improve UI (add music and sound effects)
+6. Hosting Configurations and Social Media posts
 
-    Med  ( 80% one emotion )
+---- Version 2 ----
 
-    Hard ( 40% each emotion)
-
-
-
-DB of Game States
+1. User auth (2)
+2. Payment (2)
+3. 14 more levels
 
 AWS
 Username: Har150n
 Password: QXhRA9|!
 
 
-{ "mode" : { "S" : "Easy" }, "questions" : { "L" : [ { "M" : { "options" : { "L" : [ { "S" : "happy" }, { "S" : "sad" } ] }, "imageName" : { "S" : "happy5.jpg" }, "answer" : { "S" : "happy" }, "qId" : { "N" : "5" }, "emotionData" : { "NULL" : true } } }, { "M" : { "options" : { "L" : [ { "S" : "happy" }, { "S" : "sad" } ] }, "imageName" : { "S" : "sad9.jpg" }, "answer" : { "S" : "sad" }, "qId" : { "N" : "21" }, "emotionData" : { "NULL" : true } } }, { "M" : { "options" : { "L" : [ { "S" : "happy" }, { "S" : "sad" } ] }, "imageName" : { "S" : "sad8.jpg" }, "answer" : { "S" : "sad" }, "qId" : { "N" : "20" }, "emotionData" : { "NULL" : true } } }, { "M" : { "options" : { "L" : [ { "S" : "happy" }, { "S" : "sad" } ] }, "imageName" : { "S" : "happy9.jpg" }, "answer" : { "S" : "happy" }, "qId" : { "N" : "9" }, "emotionData" : { "NULL" : true } } }, { "M" : { "options" : { "L" : [ { "S" : "happy" }, { "S" : "sad" } ] }, "imageName" : { "S" : "happy7.jpg" }, "answer" : { "S" : "happy" }, "qId" : { "N" : "7" }, "emotionData" : { "NULL" : true } } }, { "M" : { "options" : { "L" : [ { "S" : "happy" }, { "S" : "sad" } ] }, "imageName" : { "S" : "sad10.jpg" }, "answer" : { "S" : "sad" }, "qId" : { "N" : "22" }, "emotionData" : { "NULL" : true } } }, { "M" : { "options" : { "L" : [ { "S" : "happy" }, { "S" : "sad" } ] }, "imageName" : { "S" : "sad2.jpg" }, "answer" : { "S" : "sad" }, "qId" : { "N" : "14" }, "emotionData" : { "NULL" : true } } }, { "M" : { "options" : { "L" : [ { "S" : "happy" }, { "S" : "sad" } ] }, "imageName" : { "S" : "happy1.jpg" }, "answer" : { "S" : "happy" }, "qId" : { "N" : "1" }, "emotionData" : { "NULL" : true } } }, { "M" : { "options" : { "L" : [ { "S" : "happy" }, { "S" : "sad" } ] }, "imageName" : { "S" : "happy4.jpg" }, "answer" : { "S" : "happy" }, "qId" : { "N" : "4" }, "emotionData" : { "NULL" : true } } }, { "M" : { "options" : { "L" : [ { "S" : "happy" }, { "S" : "sad" } ] }, "imageName" : { "S" : "happy11.jpg" }, "answer" : { "S" : "happy" }, "qId" : { "N" : "11" }, "emotionData" : { "NULL" : true } } }, { "M" : { "options" : { "L" : [ { "S" : "happy" }, { "S" : "sad" } ] }, "imageName" : { "S" : "happy2.jpg" }, "answer" : { "S" : "happy" }, "qId" : { "N" : "2" }, "emotionData" : { "NULL" : true } } }, { "M" : { "options" : { "L" : [ { "S" : "happy" }, { "S" : "sad" } ] }, "imageName" : { "S" : "happy6.jpg" }, "answer" : { "S" : "happy" }, "qId" : { "N" : "6" }, "emotionData" : { "NULL" : true } } } ] }, "index" : { "N" : "1" }, "score" : { "N" : "1" }, "emotions" : { "L" : [ { "S" : "happy" }, { "S" : "sad" } ] }, "level" : { "N" : "2" } }
