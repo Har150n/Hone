@@ -12,19 +12,23 @@ app.debug = True
 @app.route('/')
 def home():
     #   creates a game object in the db if no game exists
-    game = Game.getGame(129)
+    game = Game.getGame(103)
     Game.updateGame(game)
     return render_template('home.html', userId = game.userId)
 
 @app.route('/levels/<userId>', methods=['GET'])
 def levels(userId):
     game = Game.getGame(userId)
+    game.currentLevel = None
+    game = Game.updateGame(game)
     return render_template('levels.html', userId = userId, levels = game.levels)
 
 
 @app.route('/quiz/<userId>/<level>', methods=['POST', 'GET'])
 def quiz(userId, level):
     game = Game.getGame(userId)
+
+    #   assigns value to currentLevel based on clicked level
     if game.currentLevel is None and (isinstance(level, str) or isinstance(level, int)):
         game.currentLevel = game.levels[int(level)-1]
 
@@ -36,14 +40,24 @@ def quiz(userId, level):
         #   the player levels up
         #   completion holds whether the level is complete or not
         completion = game.submitAnswer(emotion)
-        game = Game.updateGame(game)
+
+        # reset score and index to 0
+        if completion == 'Complete':
+            game.currentLevel.score = 0
+            game.currentLevel.index = 0
+            game.currentLevel.levelCompleted = True
 
         #   update levels to reflect current level
         game.levels[int(level)-1] = game.currentLevel
         game = Game.updateGame(game)
+
+        #   configure url for levels page
         url = url_for('levels', userId=userId)
-        return {'imageName': game.currentLevel.questions[game.currentLevel.index].imageName, 'userId': userId,
-                'level': level, 'score': game.currentLevel.score, 'completion': completion,
+        imageName = game.currentLevel.questions[game.currentLevel.index].imageName
+        score = game.currentLevel.score
+
+        return {'imageName': imageName, 'userId': userId,
+                'level': level, 'score': score, 'completion': completion,
                 'redirect': url}
 
     else:

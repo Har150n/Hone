@@ -6,9 +6,27 @@
 *images not showing up X
 
 2. Implement Level Up Game Logic and Progress Bar
-3. Show completed levels and add 2 more levels
+- Completion of level redirects to level home screen    X
+- Show that a level is completed    X
+- Progress bar  X
+
+* SCORE_TO_LEVEL_UP is in quiz_script.js and submitAnswer and quiz.html
+
+
+
 4. Add Landing Page info and Improve UI (add music and sound effects)
-6. Hosting Configurations and Social Media posts
+- Remove underline from links X
+- add 2 more levels
+- Add photos of children
+- Fix answer buttons to be solid rectangles
+- Font and Typography
+- Add music
+- Add sound effects
+- (opt) animate progress bar
+https://www.w3schools.com/w3css/w3css_progressbar.asp
+
+
+5. Hosting Configurations and Social Media posts
 
 ---- Version 2 ----
 

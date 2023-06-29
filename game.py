@@ -8,13 +8,14 @@ from timeit import default_timer as timer
 #Easy has two emotion (str) options, Med has three, Hard has four
 class Level:
     Difficulty = Enum('Difficulty', ['EASY', 'MED', 'HARD'])
-    def __init__(self, level, mode, questions, emotions, index=0, score=0):
+    def __init__(self, level, mode, questions, emotions, index=0, score=0, levelCompleted=False):
         self.level = level
         self.mode = mode
         self.questions = questions  # List of Question objects
         self.emotions = emotions
         self.index = int(index)
         self.score = int(score)
+        self.levelCompleted = levelCompleted
 
     def toDict(self):
         questionsDict = [question.toDict() for question in self.questions]
@@ -24,19 +25,21 @@ class Level:
             "questions": questionsDict,
             "emotions": self.emotions,
             "index": self.index,
-            "score": self.score
+            "score": self.score,
+            "levelCompleted": self.levelCompleted
         }
         return levelDict
 
     @classmethod
     def fromDict(cls, levelDict):
-        level = levelDict["level"]
+        level = int(levelDict["level"])
         mode = levelDict["mode"]
         questions = [Question.fromDict(q) for q in levelDict["questions"]]
         emotions = levelDict["emotions"]
-        index = levelDict["index"]
-        score = levelDict["score"]
-        return cls(level, mode, questions, emotions, index, score)
+        index = int(levelDict["index"])
+        score = int(levelDict["score"])
+        levelCompleted = levelDict["levelCompleted"]
+        return cls(level, mode, questions, emotions, index, score, levelCompleted)
 
 
 
@@ -64,7 +67,7 @@ class Question:
 
     @classmethod
     def fromDict(cls, questionDict):
-        qId = questionDict["qId"]
+        qId = int(questionDict["qId"])
         imageName = questionDict["imageName"]
         emotionData = questionDict["emotionData"]
         options = questionDict["options"]
@@ -159,7 +162,7 @@ class Game:
         return levels
 
     def submitAnswer(self, emotion):
-        SCORE_TO_LEVEL_UP = 3
+        SCORE_TO_LEVEL_UP = 5
         currentQuestion = self.currentLevel.questions[self.currentLevel.index]
         if currentQuestion.answer in emotion:
             #   check if over index
@@ -170,7 +173,7 @@ class Game:
 
             self.currentLevel.score += 1
             if self.currentLevel.score >= SCORE_TO_LEVEL_UP:
-                self.currentLevel.score = 0
+                #   completion status is updated in parent function
                 return 'Complete'
             else:
                 return 'Incomplete'

@@ -5,19 +5,28 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/style.css') }}">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="{{ url_for('static', filename='quiz_script.js') }}"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 
 </head>
 <body>
 <div class="container">
-<div class="score-box">
+    <div class="score-box">
         Score: <span id="scoreValue">{{ level.score }}</span>
     </div>
-    <img src="{{ url_for('static', filename='faces/' + question.imageName) }}" id="faceImage" alt="Picture" class="picture">
+    <div class="progress-container">
+        <div class="w3-light-grey w3-round" style="width: 25%;">
+            <div class="w3-green w3-round" style="height:24px;width:{{ (level.score / 5) * 100 }}%"></div>
+        </div>
+    </div>
+
+    <br>
+    <img src="{{ url_for('static', filename='faces/' + question.imageName) }}" id="faceImage" alt="Picture"
+         class="picture">
     <div class="answer-boxes">
         {% for emotion in level.emotions %}
             <div class="answer-box">
-                <button type="button" class="emotion-button" data-userid="{{ userId }}" data-level="{{ level.level}}">
+                <button type="button" class="emotion-button" data-userid="{{ userId }}" data-level="{{ level.level }}">
                     {{ emotion }}</button>
             </div>
         {% endfor %}
