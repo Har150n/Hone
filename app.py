@@ -14,7 +14,7 @@ def home():
     #   creates a game object in the db if no game exists
     game = Game.getGame(107)
     Game.updateGame(game)
-    return render_template('home.html', userId = game.userId)
+    return render_template('index.html', userId = game.userId)
 
 @app.route('/levels/<userId>', methods=['GET'])
 def levels(userId):
