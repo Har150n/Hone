@@ -5,9 +5,8 @@ from timeit import default_timer as timer
 
 
 # Level class to represent each level in the game
-#Easy has two emotion (str) options, Med has three, Hard has four
+# Easy has two emotion (str) options, Med has three, Hard has four
 class Level:
-    Difficulty = Enum('Difficulty', ['EASY', 'MED', 'HARD'])
     def __init__(self, level, mode, questions, emotions, index=0, score=0, levelCompleted=False):
         self.level = level
         self.mode = mode
@@ -42,18 +41,14 @@ class Level:
         return cls(level, mode, questions, emotions, index, score, levelCompleted)
 
 
-
-
-
-
 # Question class to represent each question in a level
 class Question:
     def __init__(self, qId, imageName, options, answer):
         self.qId = qId
         self.imageName = imageName
         self.emotionData = None
-        self.options = options                      #list of options
-        self.answer = answer      #list of correct emotion options
+        self.options = options  # list of options
+        self.answer = answer  # list of correct emotion options
 
     def toDict(self):
         questionDict = {
@@ -79,12 +74,12 @@ class Question:
 class Game:
     def __init__(self, userId):
         self.userId = userId
-        self.levels= self.populateLevels()
+        self.levels = self.populateLevels()
         self.currentLevel = None
 
     def getLevel(self, levelNum):
         if self.levels is not None:
-            return self.levels[levelNum-1]
+            return self.levels[levelNum - 1]
 
     def populateLevels(self):
         easy_questions = [
@@ -153,11 +148,92 @@ class Game:
             Question(60, 'angry12.jpg', ['happy', 'sad', 'angry'], 'angry'),
         ]
         med_emotions = ['happy', 'sad', 'angry']
+        hard_questions = [
+            Question(61, 'happy1.jpg', ['happy', 'sad', 'angry', 'neutral'], 'happy'),
+            Question(62, 'happy2.jpg', ['happy', 'sad', 'angry', 'neutral'], 'happy'),
+            Question(63, 'happy3.jpg', ['happy', 'sad', 'angry', 'neutral'], 'happy'),
+            Question(64, 'happy4.jpg', ['happy', 'sad', 'angry', 'neutral'], 'happy'),
+            Question(65, 'happy5.jpg', ['happy', 'sad', 'angry', 'neutral'], 'happy'),
+            Question(66, 'happy6.jpg', ['happy', 'sad', 'angry', 'neutral'], 'happy'),
+            Question(67, 'happy7.jpg', ['happy', 'sad', 'angry', 'neutral'], 'happy'),
+            Question(68, 'happy8.jpg', ['happy', 'sad', 'angry', 'neutral'], 'happy'),
+            Question(69, 'neutral11.jpg', ['happy', 'sad', 'angry', 'neutral'], 'neutral'),
+            Question(70, 'neutral1.jpg', ['happy', 'sad', 'angry', 'neutral'], 'neutral'),
+            Question(71, 'neutral2.jpg', ['happy', 'sad', 'angry', 'neutral'], 'neutral'),
+            Question(72, 'neutral3.jpg', ['happy', 'sad', 'angry', 'neutral'], 'neutral'),
+            Question(73, 'sad1.jpg', ['happy', 'sad', 'angry', 'neutral'], 'sad'),
+            Question(74, 'sad2.jpg', ['happy', 'sad', 'angry', 'neutral'], 'sad'),
+            Question(75, 'sad3.jpg', ['happy', 'sad', 'angry', 'neutral'], 'sad'),
+            Question(76, 'sad4.jpg', ['happy', 'sad', 'angry', 'neutral'], 'sad'),
+            Question(77, 'sad5.jpg', ['happy', 'sad', 'angry', 'neutral'], 'sad'),
+            Question(78, 'sad6.jpg', ['happy', 'sad', 'angry', 'neutral'], 'sad'),
+            Question(79, 'sad7.jpg', ['happy', 'sad', 'angry', 'neutral'], 'sad'),
+            Question(80, 'sad8.jpg', ['happy', 'sad', 'angry', 'neutral'], 'sad'),
+            Question(81, 'neutral4.jpg', ['happy', 'sad', 'angry', 'neutral'], 'neutral'),
+            Question(82, 'neutral5.jpg', ['happy', 'sad', 'angry', 'neutral'], 'neutral'),
+            Question(83, 'neutral6.jpg', ['happy', 'sad', 'angry', 'neutral'], 'neutral'),
+            Question(84, 'neutral7.jpg', ['happy', 'sad', 'angry', 'neutral'], 'neutral'),
+            Question(85, 'angry1.jpg', ['happy', 'sad', 'angry', 'neutral'], 'angry'),
+            Question(86, 'angry2.jpg', ['happy', 'sad', 'angry', 'neutral'], 'angry'),
+            Question(87, 'angry3.jpg', ['happy', 'sad', 'angry', 'neutral'], 'angry'),
+            Question(88, 'angry4.jpg', ['happy', 'sad', 'angry', 'neutral'], 'angry'),
+            Question(89, 'angry5.jpg', ['happy', 'sad', 'angry', 'neutral'], 'angry'),
+            Question(90, 'angry6.jpg', ['happy', 'sad', 'angry', 'neutral'], 'angry'),
+            Question(91, 'angry7.jpg', ['happy', 'sad', 'angry', 'neutral'], 'angry'),
+            Question(92, 'angry8.jpg', ['happy', 'sad', 'angry', 'neutral'], 'angry'),
+            Question(93, 'neutral12.jpg', ['happy', 'sad', 'angry', 'neutral'], 'neutral'),
+            Question(94, 'neutral8.jpg', ['happy', 'sad', 'angry', 'neutral'], 'neutral'),
+            Question(95, 'neutral9.jpg', ['happy', 'sad', 'angry', 'neutral'], 'neutral'),
+            Question(96, 'neutral10.jpg', ['happy', 'sad', 'angry', 'neutral'], 'neutral'),
+        ]
+        hard_emotions = ['happy', 'sad', 'angry', 'neutral']
+        harder_questions = [
+            Question(97, 'disgust1.jpg', ['happy', 'sad', 'angry', 'neutral', 'disgust'], 'disgust'),
+            Question(98, 'disgust2.jpg', ['happy', 'sad', 'angry', 'neutral', 'disgust'], 'disgust'),
+            Question(99, 'disgust3.jpg', ['happy', 'sad', 'angry', 'neutral', 'disgust'], 'happy'),
+            Question(101, 'happy5.jpg', ['happy', 'sad', 'angry', 'neutral', 'disgust'], 'happy'),
+            Question(102, 'happy6.jpg', ['happy', 'sad', 'angry', 'neutral', 'disgust'], 'happy'),
+            Question(103, 'happy7.jpg', ['happy', 'sad', 'angry', 'neutral', 'disgust'], 'happy'),
+            Question(104, 'happy8.jpg', ['happy', 'sad', 'angry', 'neutral', 'disgust'], 'happy'),
+            Question(105, 'disgust4.jpg', ['happy', 'sad', 'angry', 'neutral', 'disgust'], 'disgust'),
+            Question(106, 'disgust5.jpg', ['happy', 'sad', 'angry', 'neutral', 'disgust'], 'disgust'),
+            Question(107, 'disgust6.jpg', ['happy', 'sad', 'angry', 'neutral', 'disgust'], 'disgust'),
+            Question(108, 'neutral3.jpg', ['happy', 'sad', 'angry', 'neutral', 'disgust'], 'neutral'),
+            Question(109, 'sad1.jpg', ['happy', 'sad', 'angry', 'neutral', 'disgust'], 'sad'),
+            Question(110, 'sad2.jpg', ['happy', 'sad', 'angry', 'neutral', 'disgust'], 'sad'),
+            Question(111, 'sad3.jpg', ['happy', 'sad', 'angry', 'neutral', 'disgust'], 'sad'),
+            Question(112, 'sad4.jpg', ['happy', 'sad', 'angry', 'neutral', 'disgust'], 'sad'),
+            Question(113, 'sad5.jpg', ['happy', 'sad', 'angry', 'neutral', 'disgust'], 'sad'),
+            Question(114, 'disgust7.jpg', ['happy', 'sad', 'angry', 'neutral', 'disgust'], 'disgust'),
+            Question(115, 'disgust8.jpg', ['happy', 'sad', 'angry', 'neutral', 'disgust'], 'disgust'),
+            Question(116, 'sad8.jpg', ['happy', 'sad', 'angry', 'neutral', 'disgust'], 'sad'),
+            Question(117, 'neutral4.jpg', ['happy', 'sad', 'angry', 'neutral', 'disgust'], 'neutral'),
+            Question(118, 'neutral5.jpg', ['happy', 'sad', 'angry', 'neutral', 'disgust'], 'neutral'),
+            Question(119, 'neutral6.jpg', ['happy', 'sad', 'angry', 'neutral', 'disgust'], 'neutral'),
+            Question(120, 'neutral7.jpg', ['happy', 'sad', 'angry', 'neutral', 'disgust'], 'neutral'),
+            Question(121, 'angry1.jpg', ['happy', 'sad', 'angry', 'neutral', 'disgust'], 'angry'),
+            Question(122, 'angry2.jpg', ['happy', 'sad', 'angry', 'neutral', 'disgust'], 'angry'),
+            Question(123, 'angry3.jpg', ['happy', 'sad', 'angry', 'neutral', 'disgust'], 'angry'),
+            Question(124, 'angry4.jpg', ['happy', 'sad', 'angry', 'neutral', 'disgust'], 'angry'),
+            Question(125, 'angry5.jpg', ['happy', 'sad', 'angry', 'neutral', 'disgust'], 'angry'),
+            Question(126, 'angry6.jpg', ['happy', 'sad', 'angry', 'neutral', 'disgust'], 'angry'),
+            Question(127, 'disgust9.jpg', ['happy', 'sad', 'angry', 'neutral', 'disgust'], 'disgust'),
+            Question(128, 'disgust10.jpg', ['happy', 'sad', 'angry', 'neutral', 'disgust'], 'disgust'),
+            Question(129, 'neutral12.jpg', ['happy', 'sad', 'angry', 'neutral', 'disgust'], 'neutral'),
+            Question(130, 'neutral8.jpg', ['happy', 'sad', 'angry', 'neutral', 'disgust'], 'neutral'),
+            Question(131, 'neutral9.jpg', ['happy', 'sad', 'angry', 'neutral', 'disgust'], 'neutral'),
+            Question(132, 'neutral10.jpg', ['happy', 'sad', 'angry', 'neutral', 'disgust'], 'neutral'),
+            Question(132, 'happy1.jpg', ['happy', 'sad', 'angry', 'neutral', 'disgust'], 'disgust')]
+        harder_emotions = ['happy', 'sad', 'angry', 'neutral', 'fear', 'disgust']
         levels = [
             Level(level=1, mode='Easy', questions=random.sample(easy_questions, 12), emotions=easy_emotions),
             Level(level=2, mode='Easy', questions=random.sample(easy_questions, 12), emotions=easy_emotions),
             Level(level=3, mode='Medium', questions=random.sample(med_questions, 12), emotions=med_emotions),
-            Level(level=4, mode='Medium', questions=random.sample(med_questions, 12), emotions=med_emotions)
+            Level(level=4, mode='Medium', questions=random.sample(med_questions, 12), emotions=med_emotions),
+            Level(level=5, mode='Hard', questions=random.sample(hard_questions, 12), emotions=hard_emotions),
+            Level(level=6, mode='Hard', questions=random.sample(hard_questions, 12), emotions=hard_emotions),
+            Level(level=7, mode='Harder', questions=random.sample(harder_questions, 12), emotions=harder_emotions),
+            Level(level=8, mode='Harder', questions=random.sample(harder_questions, 12), emotions=harder_emotions)
         ]
         return levels
 
@@ -166,7 +242,7 @@ class Game:
         currentQuestion = self.currentLevel.questions[self.currentLevel.index]
         if currentQuestion.answer in emotion:
             #   check if over index
-            if (self.currentLevel.index+1) == len(self.currentLevel.questions):
+            if (self.currentLevel.index + 1) == len(self.currentLevel.questions):
                 self.currentLevel.index = 0
             else:
                 self.currentLevel.index += 1
@@ -180,7 +256,6 @@ class Game:
 
         else:
             return 'Wrong answer'
-
 
     def toDict(self):
         currentLevelDict = self.currentLevel.toDict() if self.currentLevel is not None else None
@@ -202,10 +277,9 @@ class Game:
         game.currentLevel = currentLevel
         return game
 
-
-    #Input: (str) userId
-    #Output: (game obj) game
-    #returns a game object of the user's current game state given a userId
+    # Input: (str) userId
+    # Output: (game obj) game
+    # returns a game object of the user's current game state given a userId
     @staticmethod
     def getGame(userId):
         if isinstance(userId, str):
@@ -213,7 +287,7 @@ class Game:
         game = dc.retrieveGame(userId)
         if game == -1:
             newGame = Game(userId)
-            dc.newGame(newGame)         #inserts a new game into the table
+            dc.newGame(newGame)  # inserts a new game into the table
             return newGame
         else:
             deserializedObj = Game.fromDict(game)
@@ -224,5 +298,3 @@ class Game:
     @staticmethod
     def updateGame(game):
         return dc.newGame(game)
-
-

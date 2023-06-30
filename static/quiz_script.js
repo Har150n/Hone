@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $('.emotion-button').click(function (event) {
+    $('.answer-box').click(function (event) {
         event.preventDefault();
         var emotion = $(this).text();
         var userId = $(this).data('userid');
@@ -9,19 +9,28 @@ $(document).ready(function () {
             type: 'POST',
             data: {emotion: emotion},
             success: function (response) {
+                let correctSound = new Audio('/static/plop.wav');
+                let wrongSound = new Audio('/static/error.wav');
+                let completionSound = new Audio('/static/completion.wav');
                 // Update the content of #response-container with the response HTML
                 if (response.completion == 'Complete') {
-                    window.location.replace(response.redirect);
+                    completionSound.play()
+                    setTimeout(function () {
+                        window.location.replace(response.redirect);
+
+                    }, 750);
+
                 } else if (response.completion == 'Incomplete') {
                     var imageName = response.imageName;
                     var imagePath = '/static/faces/' + imageName;
                     $("img").attr('src', imagePath)
                     $("#scoreValue").text(response.score);
-
                     var SCORE_TO_LEVEL_UP = 5
-                    $('.w3-green').css('width', ((response.score / SCORE_TO_LEVEL_UP) * 100)  + '%');
+                    $('.w3-green').css('width', ((response.score / SCORE_TO_LEVEL_UP) * 100) + '%');
+                    // play sound
+                    correctSound.play()
                 } else {
-                    console.log('Wrong Answer')
+                    wrongSound.play()
                 }
 
 

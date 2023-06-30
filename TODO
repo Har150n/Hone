@@ -1,5 +1,3 @@
-
-
 ---- Version 1 ----
 
 1. Make game state reflect updated data * (not updating when index upates)  X
@@ -12,30 +10,69 @@
 
 * SCORE_TO_LEVEL_UP is in quiz_script.js and submitAnswer and quiz.html
 
-
-
-4. Add Landing Page info and Improve UI (add music and sound effects)
+4.
+Functional UI
 - Remove underline from links X
-- add 2 more levels
-- Add photos of children
-- Fix answer buttons to be solid rectangles
-- Font and Typography
-- Add music
-- Add sound effects
-- (opt) animate progress bar
-https://www.w3schools.com/w3css/w3css_progressbar.asp
+- Back button   X
+- Rounded photos / Answer boxes X
+- Buttons -> Boxes for answers X
+- (opt) Add 4 more levels X
 
+UI Design
+- Look up inspiration for UI design X
+- Revamp layout X
+- Font and Typography   X Verdana for neurodivergent friendliness
+- (opt) Add sound effects   X
+- (opt) Add music   Might not add music
+- (opt) animate progress bar (https://www.w3schools.com/w3css/w3css_progressbar.asp)
 
 5. Hosting Configurations and Social Media posts
+- Ask mods of r/autismparenting for permission
+- Copywriting for Landing Page + Simple Landing page design X
+
+Title: Hone
+
+Headline: How parents of autistic children develop their child to recognize complex emotions.
+
+Subtitle: 8 interactive levels designed to empower your child's social intelligence while providing hours of fun!
+
+Visual: Try demo! (No Signup)
+
+Social Proof: Research-backed child development.
+    Quote:
+
+
+- Feeedback post for
+    - r/autismparenting
+    - r/autism
+    - r/entrepreneurs
+    - indiehackers
+    - r/indiehackers
+    BE FEARLESS
+- Buy domain name, host on Heroku
+*Feedback will be based on how many levels are completed
+
+
+
 
 ---- Version 2 ----
 
 1. User auth (2)
 2. Payment (2)
 3. 14 more levels
+4. Question Database
 
 AWS
 Username: Har150n
 Password: QXhRA9|!
+
+
+MESSAGE TO MODS
+Hello mods of r/autism_parenting!
+First off, I just wanna say I appreciate the positivity and helpful culture of this sub and that I've learned a lot from just coming here daily.
+
+I am a student building his senior project around a game that helps autistic children recognize emotions better. I went through the list of community rules and I know it says to not push my own agenda, so I thought I would ask the mod team for approval first.
+
+There is no payment or anything on the project. It's a web hosted project with just an interactive demo of what the game will be.
 
 

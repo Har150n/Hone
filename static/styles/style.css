@@ -1,5 +1,7 @@
-/* styles.css */
+@import url('https://fonts.googleapis.com/css?family=Press Start 2P');
+@import url('https://fonts.googleapis.com/css?family=Overpass Mono');
 
+/* styles.css */
 body {
     display: flex;
     flex-direction: column;
@@ -7,39 +9,56 @@ body {
     justify-content: center;
     height: 100vh;
     margin: 0;
-    font-family: Arial, sans-serif;
     background-image: url('../background.png');
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
 }
 
+.home-icon {
+    position: fixed;
+    top: 50px;
+    right: 50px;
+    transition: transform 0.2s ease-in-out;
+
+}
+
+.home-icon:hover {
+    transform: scale(1.1);
+}
+
 .title {
-    font-size: 32px;
-    text-align: center;
+    font-size: 150px;
+    text-align: left;
     margin-bottom: 20px;
+    font-family: "Press Start 2P";
+
 }
 
 .subtitle {
-    font-size: 24px;
-    text-align: center;
+    font-size: 32px;
+    text-align: left;
     margin-bottom: 20px;
+    font-family: "Overpass Mono";
+    font-weight: normal;
+}
+
+.left-half p {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 22px;
 }
 
 .button {
     padding: 10px 20px;
     background-color: #4CAF50;
-    color: #fff;
+    color: white;
     font-size: 18px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+    font-family: "Overpass Mono";
+    font-weight: bold;
 }
 
 .container {
@@ -47,6 +66,49 @@ body {
     flex-direction: column;
     height: 100vh;
     padding: 20px;
+    align-content: center;
+
+}
+
+.home-container {
+    display: flex;
+    align-content: start;
+
+}
+
+.left-half {
+    width: 70%;
+    padding: 100px;
+    padding-top: 50px;
+}
+
+.translated-image {
+    position: relative;
+    right: 30px;
+    top: 60px;
+}
+
+.translated-image-maria {
+    transform: translateY(20px);
+}
+
+.right-half {
+    width: 30%;
+    padding: 75px;
+}
+
+.research {
+    margin: 10px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+
+.research:hover {
+    transform: scale(1.05);
 }
 
 .section {
@@ -56,12 +118,21 @@ body {
     justify-content: flex-start;
 }
 
-.section h2 {
+.score-box h2 {
+    font-family: "Overpass Mono";
     margin: 0;
 }
 
-.section p {
-    margin-top: 10px;
+p {
+    font-family: "Overpass Mono";
+}
+
+.answer-box p {
+    font-family: "Overpass Mono"
+}
+
+.score-box #scoreValue {
+    font-family: "Overpass Mono";
 }
 
 .instructions {
@@ -79,17 +150,21 @@ body {
     align-items: center;
 }
 
-.instruction img {
-    max-width: 100%;
-    height: auto;
-}
-
-.instruction p {
-    width: 80%; /* Adjust the width as needed */
-    margin-top: 10px;
+img {
+    border-radius: 10px;
 }
 
 /* level selection page */
+
+.level-selection-box {
+    padding-left: 30px;
+        padding-right: 30px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    background-color: white;
+    border-radius: 50px;
+    cursor: pointer;
+}
 
 .level-grid {
     display: flex;
@@ -133,8 +208,18 @@ body {
 }
 
 .level-number {
-    font-size: 24px;
+    font-size: 32px;
     color: black;
+    font-family: "Overpass Mono";
+}
+
+h1 {
+    font-family: "Overpass Mono";
+    font-size: 48px;
+}
+
+h3 {
+    font-family: "Overpass Mono";
 }
 
 .answer-boxes {
@@ -145,20 +230,23 @@ body {
 .answer-box {
     margin: 10px;
     padding: 10px;
-    border: 2px solid #000;
+    background-color: white;
     border-radius: 10px;
     cursor: pointer;
+    transition: transform 0.2s ease-in-out;
 }
 
 .answer-box:hover {
-    background-color: #f0f0f0;
+    transform: scale(1.1);
 }
+
 
 .picture {
     max-width: 20%;
     height: auto;
     margin-left: auto;
     margin-right: auto;
+    border-radius: 10px;
 }
 
 .center-heading {
@@ -166,24 +254,41 @@ body {
 }
 
 .score-box {
-    text-align: right;
+    margin-top: 50px;
+    text-align: center;
 }
 
 /*Progress Bar*/
 .progress-container {
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
+}
+
+/*Back Button*/
+.back-box {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    border-radius: 10px;
+    width: 15%;
+    height: 50px;
+    margin: auto;
+}
+
+/*remove underline from links*/
+a:link {
+    text-decoration: none;
 }
 
 
-/*remove underline from links*/
-a:link { text-decoration: none; }
+a:visited {
+    text-decoration: none;
+}
 
+a:hover {
+    text-decoration: none;
+}
 
-a:visited { text-decoration: none; }
-
-
-a:hover { text-decoration: none; }
-
-
-a:active { text-decoration: none; }
+a:active {
+    text-decoration: none;
+}

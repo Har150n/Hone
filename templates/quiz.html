@@ -10,9 +10,14 @@
 
 </head>
 <body>
+
+    <a href="{{ url_for('home') }}">
+        <img src={{ url_for('static', filename = 'Home.png')}} class='home-icon' width="50" height="50">
+    </a>
+
 <div class="container">
     <div class="score-box">
-        Score: <span id="scoreValue">{{ level.score }}</span>
+        <h2>Score: <span id="scoreValue">{{ level.score }}</span> </h2>
     </div>
     <div class="progress-container">
         <div class="w3-light-grey w3-round" style="width: 25%;">
@@ -23,14 +28,26 @@
     <br>
     <img src="{{ url_for('static', filename='faces/' + question.imageName) }}" id="faceImage" alt="Picture"
          class="picture">
+
     <div class="answer-boxes">
         {% for emotion in level.emotions %}
-            <div class="answer-box">
-                <button type="button" class="emotion-button" data-userid="{{ userId }}" data-level="{{ level.level }}">
-                    {{ emotion }}</button>
+            <div class="answer-box" data-userid="{{ userId }}" data-level="{{ level.level }}">
+                <p>
+                    {{ emotion }}</p>
             </div>
+
+
         {% endfor %}
+
     </div>
+    <a href="{{ url_for('levels', userId=userId) }}">
+        <div class="back-box">
+            <p style="margin:auto;">Back</p>
+
+        </div>
+    </a>
+
+
 </div>
 
 </body>
