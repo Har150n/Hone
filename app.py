@@ -1,3 +1,5 @@
+from random import randint
+
 from flask import Flask, render_template, request, redirect, session, url_for
 
 from game import Game, Level, Question
@@ -11,8 +13,9 @@ app.debug = True
 # Flask routes for handling game logic
 @app.route('/')
 def home():
+
     #   creates a game object in the db if no game exists
-    game = Game.getGame(107)
+    game = Game.getGame(randint(10000, 99999))
     Game.updateGame(game)
     return render_template('index.html', userId = game.userId)
 
