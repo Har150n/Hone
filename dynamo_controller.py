@@ -1,5 +1,6 @@
 import boto3, json, jsonpickle as jp
 
+
 client = boto3.resource('dynamodb', region_name='us-east-2')
 tableName = 'Hone_Game_States'
 table = client.Table(tableName)

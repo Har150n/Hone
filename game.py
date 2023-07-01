@@ -6,6 +6,9 @@ from timeit import default_timer as timer
 
 # Level class to represent each level in the game
 # Easy has two emotion (str) options, Med has three, Hard has four
+import boto3
+
+
 class Level:
     def __init__(self, level, mode, questions, emotions, index=0, score=0, levelCompleted=False):
         self.level = level
@@ -298,3 +301,12 @@ class Game:
     @staticmethod
     def updateGame(game):
         return dc.newGame(game)
+
+# client = boto3.resource('dynamodb', region_name='us-east-2')
+# tableName = 'Hone_Game_States'
+# table = client.Table(tableName)
+# gameData = table.scan()['Items']
+# for gameData in gameData:
+#     gameObj = Game.fromDict(gameData)
+#     for level in gameObj.levels:
+#         print('Level Completed' + str(level.levelCompleted))
