@@ -2,7 +2,7 @@ from random import randint
 
 from flask import Flask, render_template, request, redirect, session, url_for
 
-from game import Game, Level, Question
+from game import Game
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'

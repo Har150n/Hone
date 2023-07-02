@@ -1,13 +1,4 @@
-from enum import Enum
-import random, dynamo_controller as dc, pickle
-
-from timeit import default_timer as timer
-
-
-# Level class to represent each level in the game
-# Easy has two emotion (str) options, Med has three, Hard has four
-import boto3
-
+import random, dynamo_controller as dc
 
 class Level:
     def __init__(self, level, mode, questions, emotions, index=0, score=0, levelCompleted=False):
@@ -301,16 +292,3 @@ class Game:
     @staticmethod
     def updateGame(game):
         return dc.newGame(game)
-
-# client = boto3.resource('dynamodb', region_name='us-east-2')
-# tableName = 'Hone_Game_States'
-# table = client.Table(tableName)
-# gameData = table.scan()['Items']
-# i = 1
-# for gameData in gameData:
-#     gameObj = Game.fromDict(gameData)
-#
-#     for level in gameObj.levels:
-#         print(str(i) + ": " + 'Level Completed' + str(level.levelCompleted))
-#     i += 1
-#

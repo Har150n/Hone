@@ -1,4 +1,4 @@
-import boto3, json, jsonpickle as jp
+import boto3
 
 
 client = boto3.resource('dynamodb', region_name='us-east-2')
