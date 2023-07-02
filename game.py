@@ -306,7 +306,11 @@ class Game:
 # tableName = 'Hone_Game_States'
 # table = client.Table(tableName)
 # gameData = table.scan()['Items']
+# i = 1
 # for gameData in gameData:
 #     gameObj = Game.fromDict(gameData)
+#
 #     for level in gameObj.levels:
-#         print('Level Completed' + str(level.levelCompleted))
+#         print(str(i) + ": " + 'Level Completed' + str(level.levelCompleted))
+#     i += 1
+#
