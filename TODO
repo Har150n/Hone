@@ -58,32 +58,48 @@ Weekend
 - Ask follow-up questions to customers
 
 
-Problem Validation:
-Version 1 could serve as an demo
-- Replace Try Now with prices and plans
-- When a user clicks on a plan -> say we're not ready, email submission form and link to demo
+SECOND LAUNCH
+1. Update Landing Page
+- pricing.html
+    - Have button linking to pricing
+        Free
+            - Only on Web
+            - 30 minutes of gametime
+            - 1 game mode
+            TRY NOW button
+
+        $15 / month
+            - On Web and IOS
+            - Hours of gametime
+            - 4+ game modes
+            - Cancel any time
+            - Access to new monthly modes and content
+            GET button
+    - Get notified when Hone becomes available!
+        - Leave your email to receive a Code for a Free Month of Hone Plus!
+
+
+2. Optimize for mobile
+- make landing page copywriting more concise
+    - add ADHD-focused language
+- add analytics to landing page
+- assign domain name
+- Look up mobile css guides
+
+
+3. Launch
+- Use 50$ of reddit ads to drive traffic to landing page
+- Gauge traffic to see if it is worth pursuing
 -
--
 
 
----- Version 2 ----
 
-1. User auth (2)
-2. Payment (2)
-3. 14 more levels
-4. Question Database
+
 
 AWS
 Username: Har150n
 Password: QXhRA9|!
 
 
-MESSAGE TO MODS
-Hello mods of r/autism_parenting!
-First off, I just wanna say I appreciate the positivity and helpful culture of this sub and that I've learned a lot from just coming here daily.
-
-I am a student building his senior project around a game that helps autistic children recognize emotions better. I went through the list of community rules and I know it says to not push my own agenda, so I thought I would ask the mod team for approval first.
-
-There is no payment or anything on the project. It's a web hosted project with just an interactive demo of what the game will be.
 
 

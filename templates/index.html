@@ -6,43 +6,88 @@
 
 </head>
 <body>
+<div class="section">
+    <div class="home-container">
+        <div class="left-half">
+            <img src="{{ url_for('static', filename = 'logo.png') }}" style="margin: 0px; padding: 0px;">
+            <h1 class="title">Hone</h1>
+            <h3 class="subtitle">Rapidly develop your autistic child to recognize complex emotions</h3>
+            <p>8 Interactive Levels designed for hours of fun while empowering your child's social intelligence! </p>
+            <a href="#pricing" class="button">Pricing Plans</a>
 
-<div class="home-container">
-    <div class="left-half">
-        <img src="{{ url_for('static', filename = 'logo.png') }}" style="margin: 0px; padding: 0px;"
-             class="translated-image">
-        <h1 class="title">Hone</h1>
-        <h3 class="subtitle">Rapidly develop your autistic child to recognize complex emotions</h3>
-        <p>8 Interactive Levels designed for hours of fun while empowering your child's social intelligence! </p>
-        <a href="{{ url_for('levels', userId = userId ) }}" class="button">Try now!</a>
-    </div>
-    <div class="right-half">
-        {#second section#}
-        <div class="research">
-            <p>"The children who worked with the software showed improvements in their playground interactions with
-                other kids."</p>
-            <em>
-                <p style='text-align: right;'> - Maria Hopkins Ph.D.
-                    <img src="{{ url_for('static', filename='maria-hopkins Small.jpeg') }}"
-                         class="translated-image-maria"
-                         width="40" height="60"></p>
-            </em>
         </div>
+        <div class="right-half">
+            {#second section#}
+            <div class="research">
+                <p>"The children who worked with the software showed improvements in their playground interactions with
+                    other kids."</p>
+                <em>
+                    <p style='text-align: right;'> - Maria Hopkins Ph.D.
+                        <img src="{{ url_for('static', filename='maria-hopkins Small.jpeg') }}"
+                             class="translated-image-maria"
+                             width="40" height="60"></p>
+                </em>
+            </div>
 
 
-        <div class="research">
-            <p>“Mitchell cannot only tell when I am happy or angry, but he is better able to recognize more complex
-                emotions.” </p>
-            <em>
-                <p style='text-align: right;'> - Mother of a 13-year-old research participant </p>
-            </em>
-        </div>
+            <div class="research">
+                <p>“Mitchell cannot only tell when I am happy or angry, but he is better able to recognize more complex
+                    emotions.” </p>
+                <em>
+                    <p style='text-align: right;'> - Mother of a 13-year-old research participant </p>
+                </em>
+            </div>
             <h3 style="text-align: center; font-size: 24px;">Research-backed Child Development</h3>
 
+        </div>
+
     </div>
-
 </div>
 </div>
+<div class="section">
+    <div id="pricing" class="pricing-container-container">
+              <h1> Pricing Plans</h1>
+        <div class="pricing-container">
+            <div class="pricing-box">
+                <h1>Hone Starter</h1>
+                <hr class="rounded">
+                <br>
+                <ul>
+                    <li><h3>Available on browser</h3></li>
+                    <li><h3>1 game</h3></li>
+                    <li><h3>30 minutes of playtime</h3></li>
+                    <h3><br></h3>
+                    <h3><br></h3>
+                    <h3><br></h3>
 
+                </ul>
+                <h1>Free</h1>
+                <a href="{{ url_for('levels', userId = userId ) }}" class="button">Try now!</a>
+
+            </div>
+            <div class="pricing-box">
+                <h1>Hone Plus</h1>
+                <hr class="rounded">
+                <br>
+                <ul>
+                    <li><h3>Available on IOS and browser</h3></li>
+                    <li><h3> 4 games</h3></li>
+                    <li><h3> 6 hours of playtime</h3></li>
+                    <li><h3>Access to new monthly games</h3></li>
+                    <li><h3>Free cancellation any time</h3></li>
+                    <li><h3>No hassle full refund</h3></li>
+
+
+                </ul>
+                <h1>
+                    <span style="font-size: 54px; font-family: 'Overpass Mono'">$15</span>
+                    <span style="font-size: 20px; font-family: 'Overpass Mono'">a month</span></h1>
+
+                <a href="{{ url_for('email_form', userId = userId ) }}" class="button">Get</a>
+
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

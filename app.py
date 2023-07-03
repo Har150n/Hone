@@ -13,11 +13,14 @@ app.debug = True
 # Flask routes for handling game logic
 @app.route('/')
 def home():
-
     #   creates a game object in the db if no game exists
     game = Game.getGame(randint(10000, 99999))
     Game.updateGame(game)
     return render_template('index.html', userId = game.userId)
+
+@app.route('/email')
+def email_form():
+    return render_template('email.html')
 
 @app.route('/levels/<userId>', methods=['GET'])
 def levels(userId):
