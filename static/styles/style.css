@@ -28,11 +28,11 @@ body {
 }
 
 .title {
-    font-size: 150px;
+    font-size: 180px;
     text-align: left;
     margin-bottom: 2vh;
     font-family: "Press Start 2P";
-
+    margin-top: 1vh;
 }
 
 .subtitle {

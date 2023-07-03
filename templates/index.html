@@ -1,8 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KK1GKXLSM7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KK1GKXLSM7');
+</script>
+
     <title>Hone</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
 </head>
 <body>
@@ -11,8 +22,8 @@
         <div class="left-half">
             <img src="{{ url_for('static', filename = 'logo.png') }}" style="margin: 0px; padding: 0px;">
             <h1 class="title">Hone</h1>
-            <h3 class="subtitle">Rapidly develop your autistic child to recognize complex emotions</h3>
-            <p>8 Interactive Levels designed for hours of fun while empowering your child's social intelligence! </p>
+            <h3 class="subtitle">Rapidly develop your child to better understand social cues</h3>
+            <p>An engaging educational game designed to help autistic children recognize complex emotions </p>
             <a href="#pricing" class="button">Pricing Plans</a>
 
         </div>
@@ -31,13 +42,13 @@
 
 
             <div class="research">
-                <p>“Mitchell cannot only tell when I am happy or angry, but he is better able to recognize more complex
+                <p>“Mitchell is better able to recognize more complex
                     emotions.” </p>
                 <em>
                     <p style='text-align: right;'> - Mother of a 13-year-old research participant </p>
                 </em>
             </div>
-            <h3 style="text-align: center; font-size: 24px;">Research-backed Child Development</h3>
+            <h3 style="text-align: center; font-size: 24px;">Backed by researched</h3>
 
         </div>
 
@@ -54,14 +65,14 @@
                 <br>
                 <ul>
                     <li><h3>Available on browser</h3></li>
-                    <li><h3>1 game</h3></li>
-                    <li><h3>30 minutes of playtime</h3></li>
+                    <li><h3>1 game, 20 levels </h3></li>
+                    <li><h3>1 hour of playtime</h3></li>
                     <h3><br></h3>
                     <h3><br></h3>
                     <h3><br></h3>
 
                 </ul>
-                <h1>Free</h1>
+                <h1>$5 a month</h1>
                 <a href="{{ url_for('levels', userId = userId ) }}" class="button">Try now!</a>
 
             </div>
@@ -72,7 +83,7 @@
                 <ul>
                     <li><h3>Available on IOS and browser</h3></li>
                     <li><h3> 4 games</h3></li>
-                    <li><h3> 6 hours of playtime</h3></li>
+                    <li><h3> 20 hours of playtime</h3></li>
                     <li><h3>Access to new monthly games</h3></li>
                     <li><h3>Free cancellation any time</h3></li>
                     <li><h3>No hassle full refund</h3></li>
