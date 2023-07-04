@@ -9,6 +9,7 @@ body {
     justify-content: center;
     margin: 0;
     background-image: url('../background.png');
+    object-fit: cover;
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
@@ -20,11 +21,17 @@ body {
     top: 4vh;
     right: 4vh;
     transition: transform 0.2s ease-in-out;
-
+    width: 75px;
+    height: 75px;
 }
 
 .home-icon:hover {
     transform: scale(1.1);
+}
+
+.logo {
+    margin: 0px;
+    padding: 0px;
 }
 
 .title {
@@ -67,13 +74,11 @@ body {
     height: 100vh;
     padding: 2.5vh;
     align-content: center;
-
+    justify-content: center;
 }
 
 .home-container {
     display: flex;
-    align-content: start;
-
 }
 
 .left-half {
@@ -82,7 +87,6 @@ body {
     padding-top: 6vh;
 }
 
-
 .translated-image-maria {
     transform: translateY(2.5vh);
 }
@@ -90,6 +94,8 @@ body {
 .right-half {
     width: 30%;
     padding: 12vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .research {
@@ -101,9 +107,13 @@ body {
     transition: transform 0.2s ease-in-out;
 }
 
-
 .research:hover {
     transform: scale(1.05);
+}
+
+.research-title {
+    text-align: center;
+    font-size: 24px;
 }
 
 /*Pricing*/
@@ -112,7 +122,7 @@ body {
     display: flex;
     flex-direction: column;
     margin: auto;
-    height: 70%;
+    height: 100%;
     width: 80%;
     text-align: center;
 }
@@ -122,13 +132,14 @@ body {
     justify-content: center;
     align-items: center;
     margin: auto;
+    margin-top: 5vh;
     text-align: center;
-    height: 100%;
+    height: 70%;
     width: 100%;
 }
 
 .pricing-box {
-    height: 100%;
+    height: auto;
     width: 35%;
     min-width: 50vh;
     margin: 10vh;
@@ -143,6 +154,20 @@ body {
     font-weight: normal;
 }
 
+.new-line {
+    font-size: 1.17em;
+}
+
+.pricing-text {
+    font-size: 54px;
+    font-family: 'Overpass Mono'
+}
+
+.pricing-text-b {
+    font-size: 20px;
+    font-family: 'Overpass Mono'
+}
+
 /*divider*/
 hr.rounded {
     border-top: 6px dotted lightgray;
@@ -153,6 +178,7 @@ hr.rounded {
     display: flex;
     align-items: center;
     height: 100vh;
+    width: 100%;
     margin-bottom: 10vh;
 }
 
@@ -187,6 +213,10 @@ img {
     background-color: white;
     border-radius: 50px;
     cursor: pointer;
+}
+
+.level-selection-text {
+    font-size: 36px;
 }
 
 .level-grid {
@@ -241,6 +271,11 @@ h1 {
     font-size: 48px;
 }
 
+.pricing-plans h1 {
+    font-family: "Overpass Mono";
+    font-size: 48px;
+}
+
 h2 {
     font-family: "Overpass Mono";
     font-size: 32px;
@@ -270,7 +305,7 @@ h3 {
 
 
 .picture {
-    max-width: 20%;
+    max-width: 28%;
     height: auto;
     margin-left: auto;
     margin-right: auto;
@@ -319,4 +354,230 @@ a:hover {
 
 a:active {
     text-decoration: none;
+}
+
+/* mobile optimization */
+@media screen and (max-width: 767px) {
+    body {
+        margin: 0;
+        width: 100%;
+        background-size: 100% 100%;
+        object-fit: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        overflow-x: hidden;
+    }
+
+    .title {
+        font-size: 32px;
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+
+    .subtitle {
+        font-size: 16px;
+        margin-bottom: 0;
+    }
+
+    .home-container {
+        flex-direction: column;
+        align-content: center;
+        width: 100%;
+    }
+
+    .logo {
+        width: 25vh;
+        height: 10vh
+    }
+
+    .left-half {
+        width: 80vw;
+        height: 40%;
+        padding: 0;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 10vh;
+    }
+
+    .left-half p {
+        margin-top: 2vh;
+        margin-bottom: 2vh;
+        font-size: 12px;
+    }
+
+    .right-half {
+        width: 70vw;
+        height: 40%;
+        padding: 0;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .button {
+        font-size: 10px;
+    }
+
+
+    h1 {
+        font-size: 18px;
+    }
+
+    h2 {
+        font-family: "Overpass Mono";
+        font-size: 8px;
+    }
+
+    h3 {
+        font-family: "Overpass Mono";
+        font-size: 10px;
+    }
+
+    p {
+        font-family: "Overpass Mono";
+        font-size: 8px;
+    }
+
+    .pricing-container-container {
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        height: 70%;
+        width: 80%;
+        text-align: center;
+    }
+
+    .pricing-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin: auto;
+        margin-top: 10%;
+        text-align: center;
+        height: 100%;
+        width: 100%;
+    }
+
+    .pricing-box {
+        height: 40vh;
+        width: 35%;
+        min-width: 70vw;
+        margin: 0;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10%;
+        padding: 2.5vw;
+        background-color: white;
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    .pricing-box h3 {
+        text-align: start;
+        font-weight: normal;
+        font-size: 10px;
+    }
+
+    /*divider*/
+    hr.rounded {
+        border-top: 6px dotted lightgray;
+        border-radius: 4px;
+    }
+
+    .pricing-text {
+        font-size: 18px;
+        font-family: 'Overpass Mono'
+    }
+
+    .pricing-text-b {
+        font-size: 10px;
+        font-family: 'Overpass Mono'
+    }
+
+    .research {
+        margin: 1vw;
+        padding: 2.5vw;
+    }
+
+    .research-title {
+        font-size: 12px;
+    }
+
+
+    .pricing-plans {
+        font-family: "Overpass Mono";
+        font-size: 24px;
+    }
+
+    .pricing-box ul {
+        padding-inline-start: 3vw;
+        margin-block-start: 0.3em;
+        margin-block-end: 0.3em;
+    }
+
+    .new-line {
+        font-size: 0em;
+    }
+
+    hr {
+        margin-block-end: 0;
+    }
+
+    br {
+        display: none;
+    }
+
+    /*Mobile Level Selection*/
+    .home-icon {
+        position: fixed;
+        top: 4vw;
+        right: 4vw;
+        transition: transform 0.2s ease-in-out;
+        width: 30px;
+        height: 30px;
+    }
+
+    .level-selection-text {
+        font-size: 24px;
+    }
+
+    .level-selection-box {
+        margin: auto;
+    }
+
+    /*Mobile Quiz*/
+    .answer-box {
+        margin: 1vw;
+        padding: 1vw;
+    }
+
+    .picture {
+        max-width: 60%;
+    }
+
+    .center-heading {
+        text-align: center;
+    }
+
+    .score-box {
+        margin-top: 6vw;
+    }
+
+    /*Progress Bar*/
+    .progress-container {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 1.5em;
+    }
+
+    /*Back Button*/
+    .back-box {
+        width: 40%;
+        height: 6vw;
+    }
+
+    .answer-box p {
+        font-size: 12px;
+    }
+
 }

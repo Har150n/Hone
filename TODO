@@ -81,12 +81,13 @@ SECOND LAUNCH
 2. Optimize for mobile (Monday)
 - make landing page copywriting more concise    X
 - assign domain name    X
-- add analytics to landing page
-- Look up mobile css guides
-- optimize for mobile
-- Contact us page
+- add analytics to landing page     X (tag not yet synced)
+- Look up mobile css guides X
 
-3. Make $5 tier better (Tuesday, Wednesday)
+
+3. Make $5 tier better (Tuesday)
+- optimize for mobile   X
+- Contact us page
 - Add Stripe payment system
 - 20 levels
 - Barebones User registration

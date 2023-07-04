@@ -16,11 +16,11 @@
 </head>
 <body>
     <a href="{{ url_for('home') }}">
-        <img src={{ url_for('static', filename = 'Home.png')}} class='home-icon' width="75" height="75">
+        <img src={{ url_for('static', filename = 'Home.png')}} class='home-icon'>
     </a>
   <div class="container">
   <div class="level-selection-box">
-    <h1 style="font-size: 36px;">Level Selection</h1>
+    <h1 class="level-selection-text">Level Selection</h1>
   </div>
     <div class="level-grid">
       {% for level in levels %}

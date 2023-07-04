@@ -71,5 +71,4 @@ def quiz(userId, level):
                                question = game.currentLevel.questions[game.currentLevel.index])
 
 if __name__ == '__main__':
-    app.run()
-
+    app.run(debug=True, host='192.168.8.103')
