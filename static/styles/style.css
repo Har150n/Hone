@@ -338,6 +338,13 @@ h3 {
     margin: auto;
 }
 
+/*Contact line*/
+.contact {
+    text-align: right;
+    font-family: "Overpass Mono";
+    font-size: 12px;
+}
+
 /*remove underline from links*/
 a:link {
     text-decoration: none;
@@ -451,25 +458,28 @@ a:active {
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        margin: auto;
-        margin-top: 10%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 0;
+        margin-bottom: 0;
         text-align: center;
-        height: 100%;
+        height: auto;
         width: 100%;
     }
 
     .pricing-box {
-        height: 40vh;
+        height: auto;
         width: 35%;
         min-width: 70vw;
         margin: 0;
         margin-left: auto;
         margin-right: auto;
-        margin-top: 10%;
+        margin-top: 0;
         padding: 2.5vw;
         background-color: white;
         border-radius: 10px;
         text-align: center;
+        line-height: 0.8em;
     }
 
     .pricing-box h3 {
@@ -523,9 +533,12 @@ a:active {
         margin-block-end: 0;
     }
 
-    br {
-        display: none;
+    .contact {
+        text-align: right;
+        font-family: "Overpass Mono";
+        font-size: 6px;
     }
+
 
     /*Mobile Level Selection*/
     .home-icon {
