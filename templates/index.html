@@ -17,6 +17,7 @@
 
     <title>Hone</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}">
+    <script src="https://js.stripe.com/v3/"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 </head>
@@ -63,7 +64,7 @@
 </div>
 <div class="section">
     <div id="pricing" class="pricing-container-container">
-        <h1 class = "pricing-plans"> Pricing Plans</h1>
+        <h1 class="pricing-plans"> Pricing Plans</h1>
         <div class="pricing-container">
             <div class="pricing-box">
                 <h1>Hone Starter</h1>
@@ -79,7 +80,10 @@
 
                 </ul>
                 <h1>$5 a month</h1>
-                <a href="{{ url_for('levels', userId = userId ) }}" class="button">Try now!</a>
+{#                <a href="{{ url_for('create_checkout_session') }}" class="button">Try now!</a>#}
+                <form action="{{ url_for('create_checkout_session') }}" method="POST">
+                    <button type="submit" id="button">Checkout</button>
+                </form>
 
             </div>
             <br>
@@ -105,9 +109,9 @@
 
             </div>
         </div>
-                     <div class="contact">
-             Contact us at <em>hone.harrisonshu@gmail.com </em>
-         </div>
+        <div class="contact">
+            Contact us at <em>hone.harrisonshu@gmail.com </em>
+        </div>
     </div>
 
 </div>

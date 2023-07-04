@@ -1,4 +1,4 @@
-import random, dynamo_controller as dc
+import random, game_controller as gc
 
 class Level:
     def __init__(self, level, mode, questions, emotions, index=0, score=0, levelCompleted=False):
@@ -278,10 +278,10 @@ class Game:
     def getGame(userId):
         if isinstance(userId, str):
             userId = int(userId)
-        game = dc.retrieveGame(userId)
+        game = gc.retrieveGame(userId)
         if game == -1:
             newGame = Game(userId)
-            dc.newGame(newGame)  # inserts a new game into the table
+            gc.newGame(newGame)  # inserts a new game into the table
             return newGame
         else:
             deserializedObj = Game.fromDict(game)
@@ -291,4 +291,4 @@ class Game:
     # Output: return the game
     @staticmethod
     def updateGame(game):
-        return dc.newGame(game)
+        return gc.newGame(game)

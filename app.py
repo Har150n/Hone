@@ -1,8 +1,11 @@
 from random import randint
-
 from flask import Flask, render_template, request, redirect, session, url_for
-
 from game import Game
+import stripe
+import os
+
+stripe.api_key = 'sk_test_51NQF02LRSxblT8YoW5ptrFaAZC76blDvVIHLxMvjzjqBaTIPT7r7c2X4CBOwioO7mXbpB5PfVXBKbFEk7ArOs2Jz00OIuy29Ar'
+
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
@@ -17,6 +20,40 @@ def home():
     game = Game.getGame(randint(10000, 99999))
     Game.updateGame(game)
     return render_template('index.html', userId = game.userId)
+
+@app.route('/create-checkout-session', methods=['POST'])
+def create_checkout_session():
+    try:
+        domain = "http://www.hone.games"
+        checkout_session = stripe.checkout.Session.create(
+            line_items=[
+                {
+                    # Provide the exact Price ID (for example, pr_1234) of the product you want to sell
+                    'price': 'price_1NQFCNLRSxblT8YoQKYBtSaD',
+                    'quantity': 1,
+                },
+            ],
+            mode='subscription',
+            success_url=domain + '/success.html',
+            cancel_url=domain + '/cancel.html',
+            automatic_tax={'enabled': True},
+        )
+    except Exception as e:
+        return str(e)
+
+    return redirect(checkout_session.url, code=303)
+
+@app.route('/success.html')
+def success():
+    return render_template('success.html')
+
+@app.route('/cancel.html')
+def cancel():
+    return render_template('cancel.html')
+
+@app.route('/login.html')
+def login():
+    return render_template('login.html')
 
 @app.route('/email')
 def email_form():

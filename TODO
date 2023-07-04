@@ -87,10 +87,19 @@ SECOND LAUNCH
 
 3. Make $5 tier better (Tuesday)
 - optimize for mobile   X
-- Contact us page
+- Contact us page X
 - Add Stripe payment system
-- 20 levels
+    - create Stripe account X
+    - payment page  X
+    - Get button routes to payment page X
+    - user signs up on payment page
+    - Login button on payment
 - Barebones User registration
+    - create User class file
+    - login page
+    - payment page will create a new user object if not in the table
+    - login page will retrieve the user object and redirect to the levels using userId
+- 20 levels
 - New pictures
 
 4. Launch
