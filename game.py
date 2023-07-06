@@ -67,9 +67,14 @@ class Question:
 # Game class to manage the overall game state
 class Game:
     def __init__(self, userId):
+        #   userId 123 is for demo players
         self.userId = userId
         self.levels = self.populateLevels()
         self.currentLevel = None
+
+        if int(userId) == 1000000:
+            self.levels = self.levels[0:2]
+
 
     def getLevel(self, levelNum):
         if self.levels is not None:
@@ -229,7 +234,9 @@ class Game:
             Level(level=7, mode='Harder', questions=random.sample(harder_questions, 12), emotions=harder_emotions),
             Level(level=8, mode='Harder', questions=random.sample(harder_questions, 12), emotions=harder_emotions)
         ]
+
         return levels
+
 
     def submitAnswer(self, emotion):
         SCORE_TO_LEVEL_UP = 5
@@ -251,6 +258,7 @@ class Game:
         else:
             return 'Wrong answer'
 
+
     def toDict(self):
         currentLevelDict = self.currentLevel.toDict() if self.currentLevel is not None else None
         gameDict = {
@@ -259,6 +267,7 @@ class Game:
             "currentLevel": currentLevelDict
         }
         return gameDict
+
 
     @classmethod
     def fromDict(cls, gameDict):
@@ -270,6 +279,7 @@ class Game:
         game.levels = levels
         game.currentLevel = currentLevel
         return game
+
 
     # Input: (str) userId
     # Output: (game obj) game
@@ -286,6 +296,7 @@ class Game:
         else:
             deserializedObj = Game.fromDict(game)
             return deserializedObj
+
 
     # Input: userId, (game obj) game
     # Output: return the game

@@ -28,7 +28,7 @@
             <img src="{{ url_for('static', filename = 'logo.png') }}" class="logo">
             <h1 class="title">Hone</h1>
             <h3 class="subtitle">Rapidly develop your child to better understand social cues</h3>
-            <p>An engaging educational game designed to help autistic children recognize complex emotions </p>
+            <p>An emotion-guessing game designed to help autistic children recognize complex emotions </p>
             <a href="#pricing" class="button">Pricing Plans</a>
 
 
@@ -71,19 +71,26 @@
                 <hr class="rounded">
                 <br>
                 <ul>
+
                     <li><h3>Available on browser</h3></li>
                     <li><h3>1 game, 20 levels </h3></li>
                     <li><h3>1 hour of playtime</h3></li>
                     <p class="new-line"><br></p>
                     <p class="new-line"><br></p>
+
                     <p class="new-line"><br></p>
 
+
                 </ul>
-                <h1>$5 a month</h1>
-{#                <a href="{{ url_for('create_checkout_session') }}" class="button">Try now!</a>#}
+                <span class="pricing-text">$5 </span>
+                <span class="pricing-text-b">a month</span></h1>
+                {#                <a href="{{ url_for('create_checkout_session') }}" class="button">Try now!</a>#}
+                                    <a href="{{ url_for('levels', userId=userId) }}" class="try-button">Try demo!</a>
+
                 <form action="{{ url_for('create_checkout_session') }}" method="POST">
-                    <button type="submit" id="button">Checkout</button>
+                    <button type="submit" id="button" class="button">Get</button>
                 </form>
+
 
             </div>
             <br>

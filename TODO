@@ -92,12 +92,10 @@ SECOND LAUNCH
     - create Stripe account X
     - payment page  X
     - Get button routes to payment page X
-    - user signs up on payment page
-    - Login button on payment
-- Barebones User registration
-    - create User class file
-    - login page
-    - payment page will create a new user object if not in the table
+    - user signs up on payment page X
+- Barebones User registration   X
+    - create User class file    X
+    - login page    X
     - login page will retrieve the user object and redirect to the levels using userId
 - 20 levels
 - New pictures

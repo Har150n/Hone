@@ -2,8 +2,8 @@ from random import randint
 from flask import Flask, render_template, request, redirect, session, url_for
 from game import Game
 import stripe
-import os
-
+from user import User
+import user_controller as uc
 stripe.api_key = 'sk_test_51NQF02LRSxblT8YoW5ptrFaAZC76blDvVIHLxMvjzjqBaTIPT7r7c2X4CBOwioO7mXbpB5PfVXBKbFEk7ArOs2Jz00OIuy29Ar'
 
 
@@ -13,11 +13,10 @@ app.debug = True
 
 
 
-# Flask routes for handling game logic
+# Flask routes for handling game logics
 @app.route('/')
 def home():
-    #   creates a game object in the db if no game exists
-    game = Game.getGame(randint(10000, 99999))
+    game = Game.getGame(1000000)
     Game.updateGame(game)
     return render_template('index.html', userId = game.userId)
 
@@ -51,7 +50,7 @@ def success():
 def cancel():
     return render_template('cancel.html')
 
-@app.route('/login.html')
+@app.route('/login')
 def login():
     return render_template('login.html')
 
@@ -66,6 +65,16 @@ def levels(userId):
     game = Game.updateGame(game)
     return render_template('levels.html', userId = userId, levels = game.levels)
 
+@app.route('/process_form', methods=['POST'])
+def process_form():
+    name = request.form.get("name")
+    email = request.form.get("email")
+    age = request.form.get("age")
+    user = User(name, email, age, 'Starter')
+    if uc.newUser(user) == -1:
+        raise Exception('something went wrong adding users')
+    else:
+        return redirect(url_for('levels', userId=user.userId))
 
 @app.route('/quiz/<userId>/<level>', methods=['POST', 'GET'])
 def quiz(userId, level):

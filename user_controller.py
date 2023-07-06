@@ -19,18 +19,18 @@ def retrieveUser(email):
         return -1
     else:
         #   dictionary of game object items
-        gameData = response['Item']
-        return gameData
+        userData = response['Item']
+        return userData
 
 #Input: (Game obj) game, (str) userId
 #Output: returns the newly created game
-def newGame(game):
+def newUser(user):
     #error checking
     response = table.put_item(
         TableName=tableName,
-        Item=game.toDict()
+        Item=user.toDict()
     )
-    return game
+    return user
 
 
 
