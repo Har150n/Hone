@@ -6,7 +6,7 @@ table = client.Table(tableName)
 
 #returns a game object from the Dynamo Database given a userid
 #if there exists no game object, -1 is returned
-def retrieveUser(email):
+def get_user_by_email(email):
     response = table.get_item(
         Key={
             'email': email

@@ -8,8 +8,10 @@
 <body>
 <div class="login-container">
     <h2>Login</h2>
-        <input type="text" name="username" placeholder="Username" required>
-        <button type="button" class="button">Login</button>
+    <form action="{{ url_for('process_login') }}" method="POST">
+        <input type="text" name="email" placeholder="Email" required>
+        <button type="submit" class="button">Login</button>
+    </form>
 </div>
 </body>
 </html>

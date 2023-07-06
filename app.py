@@ -76,6 +76,17 @@ def process_form():
     else:
         return redirect(url_for('levels', userId=user.userId))
 
+@app.route('/process_login', methods=['POST'])
+def process_login():
+    email = request.form.get("email")
+    userData = uc.get_user_by_email(email)
+    if userData == -1:
+        error = 'Invalid email'
+        return render_template('login.html')
+    else:
+        user = User.fromDict(userData)
+        return redirect(url_for('levels', userId=user.userId))
+
 @app.route('/quiz/<userId>/<level>', methods=['POST', 'GET'])
 def quiz(userId, level):
     game = Game.getGame(userId)

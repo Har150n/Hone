@@ -25,7 +25,7 @@ $(document).ready(function () {
                     var imagePath = '/static/faces/' + imageName;
                     $("#faceImage").attr('src', imagePath)
                     $("#scoreValue").text(response.score);
-                    var SCORE_TO_LEVEL_UP = 5
+                    var SCORE_TO_LEVEL_UP = 10
                     $('.w3-green').css('width', ((response.score / SCORE_TO_LEVEL_UP) * 100) + '%');
                     // play sound
                     correctSound.play()

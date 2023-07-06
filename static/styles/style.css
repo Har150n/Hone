@@ -60,7 +60,7 @@ body {
 .button {
     padding: 1vh 2.5vh;
     background-color: #4CAF50;
-    margin: 5%;
+    margin: 2%;
     color: white;
     font-size: 18px;
     border: none;
@@ -68,12 +68,13 @@ body {
     cursor: pointer;
     font-family: "Overpass Mono";
     font-weight: bold;
+    max-width: 20vw;
 }
 
 .try-button {
     padding: 0.5vh 1.25vh;
     background-color: lightgray;
-    margin: 5%;
+    margin: 2%;
     color: white;
     font-size: 14px;
     border: none;
@@ -140,6 +141,24 @@ body {
     height: 100%;
     width: 80%;
     text-align: center;
+}
+
+.pricing-plans-login {
+    display: flex;
+    align-content: start;
+}
+
+.login-button {
+    padding: 0.5vh 1.25vh;
+    background-color: lightgray;
+    margin: 2%;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: "Overpass Mono";
+    font-weight: bold;
 }
 
 .pricing-container {
@@ -474,7 +493,11 @@ a:active {
 
     .button {
         font-size: 10px;
+        max-width: 20vw;
+        padding: 1vw 2vw;
+        margin-top: 5%;
     }
+
     .try-button {
         font-size: 7px;
     }
@@ -506,6 +529,19 @@ a:active {
         width: 80%;
         text-align: center;
     }
+
+    .pricing-plans-login {
+        flex-direction: column;
+        width: 80vw;
+    }
+
+    .login-button {
+        font-size: 10px;
+        max-width: 20vw;
+        padding: 0.5vw 1.25vw;
+
+    }
+
 
     .pricing-container {
         display: flex;
