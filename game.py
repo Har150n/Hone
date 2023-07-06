@@ -240,7 +240,7 @@ def populateLevels():
             Question(217, 'sad6.jpg', ['happy', 'sad', 'angry', 'neutral'], 'sad'),
             Question(218, 'sad7.jpg', ['happy', 'sad', 'angry', 'neutral'], 'sad'),
             Question(219, 'sad8.jpg', ['happy', 'sad', 'angry', 'neutral'], 'sad'),
-            Question(220,  'neutral4.jpg', ['happy', 'sad', 'angry', 'neutral'], 'neutral'),
+            Question(220, 'neutral4.jpg', ['happy', 'sad', 'angry', 'neutral'], 'neutral'),
             Question(221, 'neutral5.jpg', ['happy', 'sad', 'angry', 'neutral'], 'neutral'),
             Question(222, 'neutral6.jpg', ['happy', 'sad', 'angry', 'neutral'], 'neutral'),
             Question(223, 'neutral7.jpg', ['happy', 'sad', 'angry', 'neutral'], 'neutral'),
@@ -261,7 +261,7 @@ def populateLevels():
         harder_questions = [
             Question(300, 'disgust1.jpg', ['happy', 'sad', 'angry', 'neutral', 'disgust'], 'disgust'),
             Question(301, 'disgust2.jpg', ['happy', 'sad', 'angry', 'neutral', 'disgust'], 'disgust'),
-            Question(302, 'disgust3.jpg', ['happy', 'sad', 'angry', 'neutral', 'disgust'], 'happy'),
+            Question(302, 'disgust3.jpg', ['happy', 'sad', 'angry', 'neutral', 'disgust'], 'disgust'),
             Question(303, 'happy5.jpg', ['happy', 'sad', 'angry', 'neutral', 'disgust'], 'happy'),
             Question(304, 'happy6.jpg', ['happy', 'sad', 'angry', 'neutral', 'disgust'], 'happy'),
             Question(305, 'happy7.jpg', ['happy', 'sad', 'angry', 'neutral', 'disgust'], 'happy'),
@@ -294,7 +294,7 @@ def populateLevels():
             Question(332, 'neutral8.jpg', ['happy', 'sad', 'angry', 'neutral', 'disgust'], 'neutral'),
             Question(333, 'neutral9.jpg', ['happy', 'sad', 'angry', 'neutral', 'disgust'], 'neutral'),
             Question(334, 'neutral10.jpg', ['happy', 'sad', 'angry', 'neutral', 'disgust'], 'neutral'),
-            Question(335, 'happy1.jpg', ['happy', 'sad', 'angry', 'neutral', 'disgust'], 'disgust')]
+            Question(335, 'happy1.jpg', ['happy', 'sad', 'angry', 'neutral', 'disgust'], 'happy')]
         harder_emotions = ['happy', 'sad', 'angry', 'neutral', 'fear', 'disgust']
         levels = [
             Level(level=1, mode='Easy', questions=random.sample(easy_questions, 10), emotions=easy_emotions),

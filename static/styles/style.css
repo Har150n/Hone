@@ -69,6 +69,7 @@ body {
     font-family: "Overpass Mono";
     font-weight: bold;
     max-width: 20vw;
+    text-align: center;
 }
 
 .try-button {
@@ -159,6 +160,7 @@ body {
     cursor: pointer;
     font-family: "Overpass Mono";
     font-weight: bold;
+    text-align: center;
 }
 
 .pricing-container {
@@ -498,7 +500,8 @@ a:active {
 
     .button {
         font-size: 10px;
-        max-width: 20vw;
+        max-width: 40vw;
+        width: auto;
         padding: 1vw 2vw;
         margin-top: 5%;
     }

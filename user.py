@@ -3,8 +3,8 @@ from datetime import datetime
 
 
 class User:
-    def __init__(self, name, email, age, subscription):
-        self.userId = random.randint(10000, 99999)  # int
+    def __init__(self, userId, name, email, age, subscription):
+        self.userId = userId  # int
         self.name = name
         self.email = email  # string
         self.age = age  # int
@@ -28,6 +28,6 @@ class User:
         age = user_dict.get("age")
         dateCreated = user_dict.get("dateCreated")
         subscription = user_dict.get("subscription")
-        user = cls(name, email, age, subscription)
+        user = cls(userId, name, email, age, subscription)
         user.dateCreated = dateCreated
         return user
