@@ -96,9 +96,9 @@ SECOND LAUNCH
 - Barebones User registration   X
     - create User class file    X
     - login page    X
-    - login page will retrieve the user object and redirect to the levels using userId
-- 20 levels
-- New pictures
+    - login page will retrieve the user object and redirect to the levels using userId  X
+- 20 levels X
+- New pictures  X
 
 4. Launch
 - Use 50$ of reddit ads to drive traffic to landing page    X
