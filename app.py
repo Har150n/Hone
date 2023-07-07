@@ -61,7 +61,7 @@ def email_form():
 @app.route('/levels/<userId>', methods=['GET'])
 def levels(userId):
     game = Game.getGame(userId)
-    game.currentLevel = Noner
+    game.currentLevel = None
     game = Game.updateGame(game)
     return render_template('levels.html', userId = userId, levels = game.levels)
 
