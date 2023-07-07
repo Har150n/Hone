@@ -61,7 +61,7 @@ def email_form():
 @app.route('/levels/<userId>', methods=['GET'])
 def levels(userId):
     game = Game.getGame(userId)
-    game.currentLevel = None
+    game.currentLevel = Noner
     game = Game.updateGame(game)
     return render_template('levels.html', userId = userId, levels = game.levels)
 
@@ -70,7 +70,8 @@ def process_form():
     name = request.form.get("name")
     email = request.form.get("email")
     age = request.form.get("age")
-    user = User(name, email, age, 'Starter')
+    randUserId = randint(10000, 99999)
+    user = User(randUserId, name, email, age, 'Starter')
     if uc.newUser(user) == -1:
         raise Exception('something went wrong adding users')
     else:
