@@ -41,7 +41,8 @@
             <h3 class='research-title'>Backed by research</h3>
 
             <div class="research">
-                <p>"The children who worked with [a similar game] showed improvements in their playground interactions with
+                <p>"The children who worked with [a similar game] showed improvements in their playground interactions
+                    with
                     other kids."</p>
                 <em>
                     <p style='text-align: right;'> - Maria Hopkins Ph.D.
@@ -74,20 +75,24 @@
                 <h1>Hone Starter</h1>
                 <hr class="rounded">
                 <br>
-                <ul>
+                <div class="feature-list">
+                    <ul>
 
-                    <li><h3>Available on browser</h3></li>
-                    <li><h3>1 game, 20 levels </h3></li>
-                    <li><h3>1 hour of playtime</h3></li>
-                    <p class="new-line"><br></p>
-                    <p class="new-line"><br></p>
+                        <li><h3>Available on browser</h3></li>
+                        <li><h3>1 game mode, 20 levels </h3></li>
+                        <li><h3>2 hours of playtime</h3></li>
+                        <li><h3>Money back guaranteed</h3></li>
+                        <h3 class="new-line"><br></h3>
+                        <p class="new-line"><br></p>
 
-                    <p class="new-line"><br></p>
 
+                    </ul>
+                </div>
+                <div class="pricing-text-box">
+                    <h3 class="pricing-text"><s>$17</s> $5 </h3>
+                </div>
 
-                </ul>
-                <span class="pricing-text">$5 </span>
-                <span class="pricing-text-b">a month</span></h1>
+                {#                <span class="pricing-text-b">a month</span></h1>#}
                 {#                <a href="{{ url_for('create_checkout_session') }}" class="button">Try now!</a>#}
                 <a href="{{ url_for('levels', userId=userId) }}" class="try-button">Try demo!</a>
 
@@ -102,19 +107,21 @@
                 <h1>Hone Plus</h1>
                 <hr class="rounded">
                 <br>
-                <ul>
-                    <li><h3>Available on IOS and browser</h3></li>
-                    <li><h3> 4 games</h3></li>
-                    <li><h3> 20 hours of playtime</h3></li>
-                    <li><h3>Access to new monthly games</h3></li>
-                    <li><h3>Free cancellation any time</h3></li>
-                    <li><h3>No hassle full refund</h3></li>
+                <div class="feature-list">
+
+                    <ul>
+                        <li><h3>Available on IOS and browser</h3></li>
+                        <li><h3> 6 game modes, 200+ levels</h3></li>
+                        <li><h3> 20 hours of playtime</h3></li>
+                        <li><h3>Access to new monthly games</h3></li>
+                        <li><h3>Money back guaranteed</h3></li>
+                        <p class="new-line"><br></p>
 
 
-                </ul>
-                <h1>
-                    <span class="pricing-text">$15</span>
-                    <span class="pricing-text-b">a month</span></h1>
+                    </ul>
+                </div>
+                <h3 class="pricing-text">
+                    $30</h3>
 
                 <a href="{{ url_for('email_form') }}" class="button">Get</a>
 

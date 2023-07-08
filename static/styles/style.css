@@ -169,7 +169,6 @@ body {
     align-items: center;
     margin: auto;
     margin-top: 5vh;
-    text-align: center;
     height: 70%;
     width: 100%;
 }
@@ -178,15 +177,18 @@ body {
     height: auto;
     width: 35%;
     min-width: 50vh;
+    min-height: 80vh;
     margin: 10vh;
     padding: 2.5vh;
     background-color: white;
     border-radius: 10px;
-    text-align: center;
+}
+
+.feature-list {
+    text-align: start;
 }
 
 .pricing-box h3 {
-    text-align: start;
     font-weight: normal;
 }
 
@@ -194,14 +196,45 @@ body {
     font-size: 1.17em;
 }
 
+.pricing-text-box {
+    text-align: center;
+}
+
 .pricing-text {
     font-size: 54px;
-    font-family: 'Overpass Mono'
+    font-family: 'Overpass Mono';
 }
 
 .pricing-text-b {
     font-size: 20px;
     font-family: 'Overpass Mono'
+}
+
+s {
+    text-decoration: none;
+    position: relative;
+    font-size: 36px;
+}
+
+s::before {
+    top: 50%; /*tweak this to adjust the vertical position if it's off a bit due to your font family */
+    background: red; /*this is the color of the line*/
+    opacity: .7;
+    content: '';
+    width: 110%;
+    position: absolute;
+    height: .1em;
+    border-radius: .1em;
+    left: -5%;
+    white-space: nowrap;
+    display: block;
+    transform: rotate(-15deg);
+}
+
+s.straight::before {
+    transform: rotate(0deg);
+    left: -1%;
+    width: 102%;
 }
 
 /*divider*/
@@ -581,13 +614,9 @@ a:active {
         background-color: white;
         border-radius: 10px;
         text-align: center;
-        line-height: 0.8em;
-    }
+        line-height: 0.6em;
+            min-height:0;
 
-    .pricing-box h3 {
-        text-align: start;
-        font-weight: normal;
-        font-size: 10px;
     }
 
     /*divider*/
@@ -618,13 +647,17 @@ a:active {
 
     .pricing-plans {
         font-family: "Overpass Mono";
-        font-size: 24px;
+        font-size: 20px;
     }
 
     .pricing-box ul {
         padding-inline-start: 3vw;
         margin-block-start: 0.3em;
         margin-block-end: 0.3em;
+    }
+
+    s {
+        font-size: 14px;
     }
 
     .new-line {
