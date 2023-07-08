@@ -4,7 +4,7 @@ from game import Game
 import stripe
 from user import User
 import user_controller as uc
-stripe.api_key = 'sk_test_51NQF02LRSxblT8YoW5ptrFaAZC76blDvVIHLxMvjzjqBaTIPT7r7c2X4CBOwioO7mXbpB5PfVXBKbFEk7ArOs2Jz00OIuy29Ar'
+stripe.api_key = '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'
 
 
 app = Flask(__name__)
@@ -28,11 +28,11 @@ def create_checkout_session():
             line_items=[
                 {
                     # Provide the exact Price ID (for example, pr_1234) of the product you want to sell
-                    'price': 'price_1NQFCNLRSxblT8YoQKYBtSaD',
+                    'price': 'price_1NROsHLRSxblT8YozCtGHZf3',
                     'quantity': 1,
                 },
             ],
-            mode='subscription',
+            mode='payment',
             success_url=domain + '/success.html',
             cancel_url=domain + '/cancel.html',
             automatic_tax={'enabled': True},
