@@ -4,7 +4,8 @@ from game import Game
 import stripe
 from user import User
 import user_controller as uc
-stripe.api_key = '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'
+import os
+stripe.api_key = os.getenv('STRIPE_API_KEY')
 
 
 app = Flask(__name__)
